@@ -4,14 +4,15 @@ import { Page } from "src/models/page";
 import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class NotebookService {
 
     pages: Page[] = new Array<Page>();
-    notebookBehaviorSubject = new BehaviorSubject([]);
+    notebookBehaviorSubject: BehaviorSubject<Page[]> = new BehaviorSubject([]);
     notebook$ = this.notebookBehaviorSubject.asObservable();
-    currentPage = new Subject();
+    currentPageBehaviorSubject = new BehaviorSubject(undefined);
+    currentPage$ = this.currentPageBehaviorSubject.asObservable();
 
     constructor() {
         Array.from(Array(5)).forEach((x, i) => {
@@ -19,11 +20,11 @@ export class NotebookService {
         });
 
         this.notebookBehaviorSubject.next(this.pages);
+        this.currentPageBehaviorSubject.next(this.pages[0]);
     }
 
-    selectPage(index: number) {
-        this.currentPage.next(index);
+    setCurrentPage(id: number) {
+        let _page = this.pages.find(x => x.id === id);
+        this.currentPageBehaviorSubject.next(_page);
     }
-
-
 }

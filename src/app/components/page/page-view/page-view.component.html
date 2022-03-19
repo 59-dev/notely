@@ -1,2 +1,2 @@
-<h2>One</h2>
-<p>Content goes here!</p>
+<h2>{{ (page$ | async)?.name }}</h2>
+<p>{{ (page$ | async)?.content }}</p>

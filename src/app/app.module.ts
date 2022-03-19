@@ -7,7 +7,6 @@ import { TitleBarComponent } from './components/title-bar/title-bar.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SideBarItemComponent } from './components/side-bar/side-bar-item/side-bar-item.component';
-import { NotebookComponent } from './components/notebook/notebook.component';
 import { PageComponent } from './components/page/page.component';
 import { PageActionsComponent } from './components/page/page-actions/page-actions.component';
 import { PageViewComponent } from './components/page/page-view/page-view.component';
@@ -19,7 +18,6 @@ import { PageViewComponent } from './components/page/page-view/page-view.compone
     LayoutComponent,
     SideBarComponent,
     SideBarItemComponent,
-    NotebookComponent,
     PageComponent,
     PageActionsComponent,
     PageViewComponent
