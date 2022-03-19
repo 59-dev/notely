@@ -1,0 +1,7 @@
+.page-actions-container {
+    display: flex;
+}
+
+input {
+    margin: 5px;
+}

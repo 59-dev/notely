@@ -9,6 +9,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SideBarItemComponent } from './components/side-bar/side-bar-item/side-bar-item.component';
 import { NotebookComponent } from './components/notebook/notebook.component';
 import { PageComponent } from './components/page/page.component';
+import { PageActionsComponent } from './components/page/page-actions/page-actions.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PageComponent } from './components/page/page.component';
     SideBarComponent,
     SideBarItemComponent,
     NotebookComponent,
-    PageComponent
+    PageComponent,
+    PageActionsComponent
   ],
   imports: [
     BrowserModule,
