@@ -7,6 +7,8 @@ import { TitleBarComponent } from './components/title-bar/title-bar.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SideBarItemComponent } from './components/side-bar/side-bar-item/side-bar-item.component';
+import { NotebookComponent } from './components/notebook/notebook.component';
+import { PageComponent } from './components/page/page.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { SideBarItemComponent } from './components/side-bar/side-bar-item/side-b
     TitleBarComponent,
     LayoutComponent,
     SideBarComponent,
-    SideBarItemComponent
+    SideBarItemComponent,
+    NotebookComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
