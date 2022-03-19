@@ -1,10 +1,12 @@
 export class Page {
 
+    id: number;
     name: string;
     content: string;
 
-    constructor(pageName: string) {
-        this.name = pageName;
+    constructor(idx: number) {
+        this.id = idx + 1;
+        this.name = "Page " + this.id;
         this.content = "";
     }
 }

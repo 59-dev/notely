@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { Page } from "src/models/page";
 
 @Component({
   selector: 'app-side-bar-item',
@@ -9,15 +10,9 @@ export class SideBarItemComponent implements OnInit {
 
   constructor() { }
 
-  @Input() name: string;
-  @Input() idx: number;
-  pageId: string;
+  @Input() page: Page;
 
   ngOnInit() {
+      console.log(this.page);
   }
-
-  ngOnChanges() {
-      this.pageId = "page_" + this.idx;
-  }
-
 }
