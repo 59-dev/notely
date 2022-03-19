@@ -1,0 +1,10 @@
+.content-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.side-bar-container {
+    margin: 10px;
+    border-right: 1px solid black;
+    padding-right: 10px;
+}

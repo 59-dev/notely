@@ -11,8 +11,13 @@ export class SideBarItemComponent implements OnInit {
 
   @Input() name: string;
   @Input() idx: number;
+  pageId: string;
 
   ngOnInit() {
+  }
+
+  ngOnChanges() {
+      this.pageId = "page_" + this.idx;
   }
 
 }
