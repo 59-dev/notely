@@ -1,4 +1,8 @@
+import { TagPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { NotebookService } from 'src/app/services/notebook.service';
+import { Page } from 'src/models/page';
 
 @Component({
   selector: 'app-side-bar',
@@ -7,16 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private notebookService: NotebookService) { }
+  
+    notebook$: Observable<Page[]>;
 
-  pages = Array();
-
-  ngOnInit() {
-      this.pages.push("One");
-      this.pages.push("Two");
-      this.pages.push("Three");
-      this.pages.push("Four");
-      this.pages.push("Five");
-  }
+    ngOnInit() {
+        this.notebook$ = this.notebookService.notebook$;
+    }
 
 }
