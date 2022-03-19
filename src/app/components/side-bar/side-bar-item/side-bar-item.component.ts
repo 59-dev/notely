@@ -13,6 +13,5 @@ export class SideBarItemComponent implements OnInit {
   @Input() page: Page;
 
   ngOnInit() {
-      console.log(this.page);
   }
 }

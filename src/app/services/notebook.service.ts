@@ -18,8 +18,6 @@ export class NotebookService {
             this.pages.push(new Page(i))
         });
 
-        console.log(this.pages);
-
         this.notebookBehaviorSubject.next(this.pages);
     }
 
