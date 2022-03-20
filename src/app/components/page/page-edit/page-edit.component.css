@@ -1,6 +1,19 @@
-.title-container {
+.edit-content-container {
+    margin-top: 20px;
+}
+
+.actions-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+}
+
+.editor-container {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 5px;
 }

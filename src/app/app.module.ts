@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TitleBarComponent } from './components/title-bar/title-bar.component';
@@ -12,6 +11,7 @@ import { PageViewComponent } from './components/page/page-view/page-view.compone
 import { PageEditComponent } from './components/page/page-edit/page-edit.component';
 import { PageEditActionsComponent } from './components/page/page-edit/page-edit-actions/page-edit-actions.component';
 import { PageViewActionsComponent } from './components/page/page-view/page-view-actions/page-view-actions.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { PageViewActionsComponent } from './components/page/page-view/page-view-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

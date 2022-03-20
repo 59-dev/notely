@@ -1,5 +1,9 @@
-<div class="title-container">
-   <input type="text"/>
-    <app-page-edit-actions (cancelClick)="onCancelClick()"></app-page-edit-actions>
+<div class="edit-content-container">
+    <div class="actions-container">
+        <app-page-edit-actions (cancelClick)="onCancelClick()"></app-page-edit-actions>
+    </div>
+    <div class="editor-container">
+        <h3>Page Title</h3><input type="text" [(ngModel)]="page.name"/>
+        <h3>Page Content</h3><input type="textarea" [(ngModel)]="page.content"/>
+    </div>
 </div>
-<input type="textarea" />
