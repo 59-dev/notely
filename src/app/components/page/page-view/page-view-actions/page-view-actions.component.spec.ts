@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageActionsComponent } from './page-actions.component';
+import { PageViewActionsComponent } from './page-view-actions.component';
 
-describe('PageActionsComponent', () => {
-  let component: PageActionsComponent;
-  let fixture: ComponentFixture<PageActionsComponent>;
+describe('PageViewActionsComponent', () => {
+  let component: PageViewActionsComponent;
+  let fixture: ComponentFixture<PageViewActionsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageActionsComponent ]
+      declarations: [ PageViewActionsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageActionsComponent);
+    fixture = TestBed.createComponent(PageViewActionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Notebook } from '../../models/notebook';
 import { Page } from "src/models/page";
 import { BehaviorSubject, Subject } from 'rxjs';
+import { CRUD } from 'src/models/enums/crud-enum';
 
 @Injectable({
     providedIn: 'root'
@@ -13,6 +13,9 @@ export class NotebookService {
     notebook$ = this.notebookBehaviorSubject.asObservable();
     currentPageBehaviorSubject = new BehaviorSubject(undefined);
     currentPage$ = this.currentPageBehaviorSubject.asObservable();
+    crudStateBehaviorSubject = new BehaviorSubject(CRUD.READ);
+    crudState$ = this.crudStateBehaviorSubject.asObservable();
+
 
     constructor() {
         Array.from(Array(5)).forEach((x, i) => {
@@ -26,5 +29,9 @@ export class NotebookService {
     setCurrentPage(id: number) {
         let _page = this.pages.find(x => x.id === id);
         this.currentPageBehaviorSubject.next(_page);
+    }
+
+    setCrudState(state: CRUD) {
+        this.crudStateBehaviorSubject.next(state);
     }
 }

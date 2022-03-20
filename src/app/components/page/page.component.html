@@ -1,2 +1,4 @@
-<app-page-view [page]="page$ | async"></app-page-view>
-<app-page-actions [page]="page$ | async" (editClick)="onEditClick()" (deleteClick)="onDeleteClick()"></app-page-actions>
+<ng-container [ngSwitch]="crudState$ | async">
+    <app-page-view *ngSwitchCase="crud.READ" [page]="page$ | async"></app-page-view>
+    <app-page-edit *ngSwitchCase="crud.UPDATE" [page]="page$ | async"></app-page-edit>
+</ng-container>

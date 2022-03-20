@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NotebookService } from 'src/app/services/notebook.service';
+import { CRUD } from 'src/models/enums/crud-enum';
 import { Page } from 'src/models/page';
 
 @Component({
@@ -13,22 +14,15 @@ export class PageComponent implements OnInit {
     constructor(private notebookService: NotebookService) { }
 
     page$: Observable<Page>;
+    crudState$: Observable<any>;
+    crud = CRUD;
 
     ngOnInit() {
         this.page$ = this.notebookService.currentPage$;
-        this.page$.subscribe(x => console.log(x));
+        this.crudState$ = this.notebookService.crudState$;
     }
 
     ngOnChanges() {
 
     }
-
-    onEditClick() {
-        console.log("edit click");
-    }
-
-    onDeleteClick() {
-        console.log("delete click");
-    }
-
 }

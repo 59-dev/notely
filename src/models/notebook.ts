@@ -6,7 +6,7 @@ export class Notebook{
 
     constructor() {
         Array.from(Array(5)).forEach((x, i) => {
-            this.pages.push(new Page("Page " + (i + 1)))
+            this.pages.push(new Page(i))
         });
     }
 }

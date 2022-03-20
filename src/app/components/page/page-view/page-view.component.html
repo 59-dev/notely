@@ -1,2 +1,5 @@
-<h2>{{ page.name }}</h2>
+<div class="title-container">
+    <h2>{{ page.name }}</h2>
+    <app-page-view-actions page="page" (editClick)="onEditClick()" (deleteClick)="onDeleteClick()"></app-page-view-actions>
+</div>
 <p>{{ page.content }}</p>

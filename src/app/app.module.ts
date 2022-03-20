@@ -8,8 +8,10 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SideBarItemComponent } from './components/side-bar/side-bar-item/side-bar-item.component';
 import { PageComponent } from './components/page/page.component';
-import { PageActionsComponent } from './components/page/page-actions/page-actions.component';
 import { PageViewComponent } from './components/page/page-view/page-view.component';
+import { PageEditComponent } from './components/page/page-edit/page-edit.component';
+import { PageEditActionsComponent } from './components/page/page-edit/page-edit-actions/page-edit-actions.component';
+import { PageViewActionsComponent } from './components/page/page-view/page-view-actions/page-view-actions.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,10 @@ import { PageViewComponent } from './components/page/page-view/page-view.compone
     SideBarComponent,
     SideBarItemComponent,
     PageComponent,
-    PageActionsComponent,
-    PageViewComponent
+    PageViewComponent,
+    PageEditComponent,
+    PageEditActionsComponent,
+    PageViewActionsComponent
   ],
   imports: [
     BrowserModule,

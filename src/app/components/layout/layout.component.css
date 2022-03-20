@@ -7,4 +7,11 @@
     margin: 25px 10px 10px;
     border-right: 1px solid black;
     padding-right: 10px;
+    width: 15%;
+    max-width: 200px;
+    min-width: 75px;
+}
+
+.notes-container {
+    width: 100%;
 }
