@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NotebookService } from 'src/app/services/notebook.service';
 import { Page } from "src/models/page";
@@ -12,14 +12,8 @@ export class PageViewComponent implements OnInit {
 
 	constructor(private notebookService: NotebookService) { }
 
-	page$: Observable<Page>;
+	@Input() page: Page;
 
 	ngOnInit() {
-		this.page$ = this.notebookService.currentPage$;
-		this.page$.subscribe(x => console.log(x));
-	}
-
-	ngOnChanges() {
-		this.page$ = this.notebookService.currentPage$;
 	}
 }
