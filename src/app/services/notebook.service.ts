@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Page } from "src/models/page";
 import { BehaviorSubject, Subject } from 'rxjs';
 import { CRUD } from 'src/models/enums/crud-enum';
+import _ from "lodash";
 
 @Injectable({
     providedIn: 'root'
@@ -33,5 +34,15 @@ export class NotebookService {
 
     setCrudState(state: CRUD) {
         this.crudStateBehaviorSubject.next(state);
+    }
+
+    savePage(page: Page) {
+        var index = _.findIndex(this.pages, { id: page.id });
+        this.pages.splice(index, 1, page);
+
+        this.notebookBehaviorSubject.next(this.pages);
+        
+        this.setCurrentPage(page.id);
+        this.setCrudState(CRUD.READ);
     }
 }
