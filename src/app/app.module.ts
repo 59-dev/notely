@@ -12,6 +12,7 @@ import { PageEditComponent } from './components/page/page-edit/page-edit.compone
 import { PageEditActionsComponent } from './components/page/page-edit/page-edit-actions/page-edit-actions.component';
 import { PageViewActionsComponent } from './components/page/page-view/page-view-actions/page-view-actions.component';
 import { FormsModule } from '@angular/forms';
+import { AutosizeModule } from 'ngx-autosize'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AutosizeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

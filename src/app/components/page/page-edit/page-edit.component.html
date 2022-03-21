@@ -3,7 +3,9 @@
         <app-page-edit-actions (cancelClick)="onCancelClick()" (saveClick)="onSaveClick()"></app-page-edit-actions>
     </div>
     <div class="editor-container">
-        <h3>Page Title</h3><input type="text" [(ngModel)]="_page.name"/>
-        <h3>Page Content</h3><input type="textarea" [(ngModel)]="_page.content"/>
+        <h3>Page Title</h3>
+        <input type="text" [(ngModel)]="_page.name"/>
+        <h3>Page Content</h3>
+        <textarea type="textarea" rows="10" [(ngModel)]="_page.content"></textarea>
     </div>
 </div>
