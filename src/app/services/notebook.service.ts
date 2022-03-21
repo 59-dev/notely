@@ -9,7 +9,6 @@ import _ from "lodash";
 })
 export class NotebookService {
 
-    pages: Page[] = new Array<Page>();
     notebookBehaviorSubject: BehaviorSubject<Page[]> = new BehaviorSubject([]);
     notebook$ = this.notebookBehaviorSubject.asObservable();
     currentPageBehaviorSubject = new BehaviorSubject(undefined);
@@ -19,14 +18,26 @@ export class NotebookService {
 
 
     constructor() {
-        this.pages.push(new Page(0))
+        let _pages = new Array<Page>();
+        let _savedData = JSON.parse(sessionStorage.getItem("Notely"));
 
-        this.notebookBehaviorSubject.next(this.pages);
-        this.currentPageBehaviorSubject.next(this.pages[0]);
+        if(_savedData !== null)
+        {
+            _pages = _.cloneDeep(_savedData);
+        }
+        else
+        {
+            _pages.push(new Page(0))
+        }
+
+        console.log(_pages);
+
+        this.notebookBehaviorSubject.next(_pages);
+        this.currentPageBehaviorSubject.next(_pages[0]);
     }
 
     setCurrentPage(id: number) {
-        let _page = this.pages.find(x => x.id === id);
+        let _page = this.notebookBehaviorSubject.getValue().find(x => x.id === id);
         this.currentPageBehaviorSubject.next(_page);
     }
 
@@ -35,35 +46,43 @@ export class NotebookService {
     }
 
     addPage() {
-        if(this.pages.length <= 4)
+        let _pages = this.notebookBehaviorSubject.getValue();
+        if (_pages.length <= 4)
         {
-            let _idx = this.pages.length;
-            this.pages.push(new Page(_idx));
+            let _idx = _pages.length;
+            _pages.push(new Page(_idx));
 
-            this.notebookBehaviorSubject.next(this.pages);
+            this.saveData(_pages);
         }
     }
 
     savePage(page: Page) {
-        var index = _.findIndex(this.pages, { id: page.id});
-        this.pages.splice(index, 1, page);
+        let _pages = this.notebookBehaviorSubject.getValue();
+        var index = _.findIndex(_pages, { id: page.id});
+        _pages.splice(index, 1, page);
 
-        this.notebookBehaviorSubject.next(this.pages);
+        this.saveData(_pages);
         
         this.setCurrentPage(page.id);
         this.setCrudState(CRUD.READ);
     }
 
     deletePage(page: Page) {
-        if(this.pages.length > 1)
+        let _pages = this.notebookBehaviorSubject.getValue();
+        if (_pages.length > 1)
         {
-            this.pages = _.filter(this.pages, function (pages) {
+            _pages = _.filter(_pages, function (pages) {
                 return pages.id !== page.id;
             });
 
-            let _page = this.pages[0];
+            let _page = _pages[0];
             this.currentPageBehaviorSubject.next(_page);
-            this.notebookBehaviorSubject.next(this.pages);
+            this.saveData(_pages);
         }
+    }
+
+    saveData(pages) {
+        this.notebookBehaviorSubject.next(pages);
+        sessionStorage.setItem('Notely', JSON.stringify(pages));
     }
 }
