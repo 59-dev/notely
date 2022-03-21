@@ -14,9 +14,15 @@ export class SideBarComponent implements OnInit {
   constructor(private notebookService: NotebookService) { }
   
     notebook$: Observable<Page[]>;
+    currentPage$: Observable<Page>;
 
     ngOnInit() {
         this.notebook$ = this.notebookService.notebook$;
+        this.currentPage$ = this.notebookService.currentPage$
+    }
+
+    addPage() {
+        this.notebookService.addPage();
     }
 
 }

@@ -19,9 +19,7 @@ export class NotebookService {
 
 
     constructor() {
-        Array.from(Array(5)).forEach((x, i) => {
-            this.pages.push(new Page(i))
-        });
+        this.pages.push(new Page(0))
 
         this.notebookBehaviorSubject.next(this.pages);
         this.currentPageBehaviorSubject.next(this.pages[0]);
@@ -34,6 +32,16 @@ export class NotebookService {
 
     setCrudState(state: CRUD) {
         this.crudStateBehaviorSubject.next(state);
+    }
+
+    addPage() {
+        if(this.pages.length <= 4)
+        {
+            let _idx = this.pages.length;
+            this.pages.push(new Page(_idx));
+
+            this.notebookBehaviorSubject.next(this.pages);
+        }
     }
 
     savePage(page: Page) {

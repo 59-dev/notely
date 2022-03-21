@@ -2,3 +2,11 @@ li {
     overflow: hidden;
     white-space: nowrap;
 }
+
+.selected {
+    background-color: navajowhite;
+}
+
+.notSelected {
+    background-color: none;
+}

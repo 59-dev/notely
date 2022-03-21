@@ -7,7 +7,7 @@ export class Page {
 
     constructor(idx: number) {
         this.id = idx + 1;
-        this.name = "Page " + this.id;
+        this.name = "New Page";
         this.content = "";
         this.domId = "page_" + this.id;
     }

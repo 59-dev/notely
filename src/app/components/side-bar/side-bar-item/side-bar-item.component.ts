@@ -1,23 +1,29 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NotebookService } from 'src/app/services/notebook.service';
 import { Page } from "src/models/page";
 
 @Component({
-  selector: 'app-side-bar-item',
-  templateUrl: './side-bar-item.component.html',
-    styleUrls: ['../../../app.component.css']
+    selector: 'app-side-bar-item',
+    templateUrl: './side-bar-item.component.html',
+    styleUrls: ['./side-bar-item.component.css']
 })
 export class SideBarItemComponent implements OnInit {
 
-  constructor(private notebookService: NotebookService) { }
+    constructor(private notebookService: NotebookService) { }
 
-  @Input() page: Page;
+    @Input() page: Page;
+    @Input() currentPageId: number;
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+        console.log(this.page.id);
+        console.log(this.currentPageId);
+    }
 
-  changeSelectedPage()
-  {
-      this.notebookService.setCurrentPage(this.page.id);
-  }
+    isCurrentPage() {
+        return this.page.id == this.currentPageId;
+    }
+
+    changeSelectedPage() {
+        this.notebookService.setCurrentPage(this.page.id);
+    }
 }
