@@ -7,7 +7,7 @@ import { Page } from 'src/models/page';
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
-    styleUrls: ['../../app.component.css']
+    styleUrls: ['./side-bar.component.css']
 })
 export class SideBarComponent implements OnInit {
 

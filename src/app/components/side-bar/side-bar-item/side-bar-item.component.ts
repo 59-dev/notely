@@ -15,8 +15,6 @@ export class SideBarItemComponent implements OnInit {
     @Input() currentPageId: number;
 
     ngOnInit() {
-        console.log(this.page.id);
-        console.log(this.currentPageId);
     }
 
     isCurrentPage() {
