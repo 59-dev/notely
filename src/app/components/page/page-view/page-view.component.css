@@ -1,5 +1,6 @@
 p {
     margin: 20px 5px;
+    white-space: pre-wrap;
 }
 
 .title-container {
