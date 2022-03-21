@@ -27,7 +27,7 @@ export class NotebookService {
         }
         else
         {
-            _pages.push(new Page(0))
+            _pages.push(new Page(1))
         }
 
         this.notebookBehaviorSubject.next(_pages);
@@ -47,8 +47,13 @@ export class NotebookService {
         let _pages = this.notebookBehaviorSubject.getValue();
         if (_pages.length <= 4)
         {
-            let _idx = _pages.length;
-            _pages.push(new Page(_idx));
+            let ids = _pages.map(object => {
+                return object.id;
+            });
+
+            let newId = Math.max.apply(null, ids) + 1;
+            
+            _pages.push(new Page(newId));
 
             this.saveData(_pages);
         }
@@ -57,6 +62,8 @@ export class NotebookService {
     savePage(page: Page) {
         let _pages = this.notebookBehaviorSubject.getValue();
         var index = _.findIndex(_pages, { id: page.id});
+
+        page.name = page.name.trim();
         _pages.splice(index, 1, page);
 
         this.saveData(_pages);
