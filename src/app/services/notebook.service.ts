@@ -37,12 +37,25 @@ export class NotebookService {
     }
 
     savePage(page: Page) {
-        var index = _.findIndex(this.pages, { id: page.id });
+        var index = _.findIndex(this.pages, { id: page.id});
         this.pages.splice(index, 1, page);
 
         this.notebookBehaviorSubject.next(this.pages);
         
         this.setCurrentPage(page.id);
         this.setCrudState(CRUD.READ);
+    }
+
+    deletePage(page: Page) {
+        if(this.pages.length > 1)
+        {
+            this.pages = _.filter(this.pages, function (pages) {
+                return pages.id !== page.id;
+            });
+
+            let _page = this.pages[0];
+            this.currentPageBehaviorSubject.next(_page);
+            this.notebookBehaviorSubject.next(this.pages);
+        }
     }
 }

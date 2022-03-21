@@ -21,8 +21,4 @@ export class PageComponent implements OnInit {
         this.page$ = this.notebookService.currentPage$;
         this.crudState$ = this.notebookService.crudState$;
     }
-
-    ngOnChanges() {
-
-    }
 }

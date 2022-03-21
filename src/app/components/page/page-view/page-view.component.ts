@@ -24,6 +24,6 @@ export class PageViewComponent implements OnInit {
     }
 
     onDeleteClick() {
-        this.notebookService.setCrudState(CRUD.DELETE);
+        this.notebookService.deletePage(this.page);
     }
 }
